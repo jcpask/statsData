@@ -94,7 +94,14 @@ report("#A6",answer)
 <h3>Expand your function from the last one, so that the object it returns not only has a picture attribute, but also new attribute called quizMean, which is the mean of that penguins quiz scores</h3>
 <script>
 //be sure to test your function out.
-var answer="please complete";
+    var getPicMean=function(penguin)
+    {
+        var box1={}
+        box1.inputPenguin=penguin.picture
+        box1.inputMean=d3.mean(penguin.quizes,getGrade)
+        return box1
+    }
+var answer=getPicMean(classroom[0])
 report("#A7",answer)    
 </script>
     </div>
@@ -102,22 +109,44 @@ report("#A7",answer)
 <div id="A8">
 <h3>With one line of code, return a list of objects that contain the picture and meanQuiz grade of all penguins</h3>
 <script>
-var answer="please complete";
+var answer=classroom.map(getPicMean)
 report("#A8",answer)    
 </script>
     </div>
 
 <div id="A9">
 <h3>Create a new function that takes a penguin and extracts/generates the following info about a penguin in an object</h3>
-    <ul>
-        <li>picture</li>
-        <li>meanQuiz</li>
-        <li>meanTests</li>
-        <li>meanHW</li>
-        <li>finalGrade</li>
-    </ul>
+    var getTest = function(test)
+ {
+    return test.grade;
+ } 
+    var getHW = function(homework)
+ {
+    return homework.grade;
+ } 
+     var FinalGrade = function(final)
+ {
+    return final.grade;
+ } 
+    var getList=function(penguin)
+    {
+        var box2={}
+        box2.inputPenguin=penguin.picture
+        box2.inputMean=d3.mean(penguin.quizes,getGrade)
+        box2.inputMeanTests=d3.mean(penguin.test,getTest)
+        box2.inputMeanHW=d3.mean(penguin.homework,getHW)
+        
+        <ul>
+            <li>box1["inputPenguin"]</li>
+            <li>box1["inputMean"]</li>
+            <li>box1["inputMeanTests"</li>
+            <li>box1["inputMeanHW"]</li>
+            <li>FinalGrade</li>
+        </ul>
+    }
+
 <script>
-var answer="please complete";
+var answer=getList(classroom[0])
 report("#A9",answer)    
 </script>
     </div>
@@ -125,7 +154,7 @@ report("#A9",answer)
 <div id="A10">
 <h3>With one line of code, return a list of objects where each objects contains all of the summary info about each penguin.</h3>
 <script>
-var answer="please complete";
+var answer=classroom.map(getList)
 report("#A10",answer)    
 </script>
     </div>
